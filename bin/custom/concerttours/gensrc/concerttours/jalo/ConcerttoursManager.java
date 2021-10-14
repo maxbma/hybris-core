@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 10 окт. 2021 г., 15:24:25                   ---
+ * --- Generated at 12 окт. 2021 г., 11:18:15                   ---
  * ----------------------------------------------------------------
  */
 package concerttours.jalo;
@@ -11,6 +11,8 @@ import concerttours.jalo.Band;
 import concerttours.jalo.Concert;
 import concerttours.jalo.ItemWithToken;
 import concerttours.jalo.News;
+import concerttours.jalo.NotLoremIpsumConstraint;
+import concerttours.jalo.SoundSystem;
 import de.hybris.platform.directpersistence.annotation.SLDSafe;
 import de.hybris.platform.jalo.GenericItem;
 import de.hybris.platform.jalo.Item;
@@ -330,6 +332,58 @@ public class ConcerttoursManager extends Extension
 	public News createNews(final Map attributeValues)
 	{
 		return createNews( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public NotLoremIpsumConstraint createNotLoremIpsumConstraint(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType("NotLoremIpsumConstraint");
+			return (NotLoremIpsumConstraint)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating NotLoremIpsumConstraint : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public NotLoremIpsumConstraint createNotLoremIpsumConstraint(final Map attributeValues)
+	{
+		return createNotLoremIpsumConstraint( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public SoundSystem createSoundSystem(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType("SoundSystem");
+			return (SoundSystem)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating SoundSystem : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public SoundSystem createSoundSystem(final Map attributeValues)
+	{
+		return createSoundSystem( getSession().getSessionContext(), attributeValues );
 	}
 	
 	public static final ConcerttoursManager getInstance()
