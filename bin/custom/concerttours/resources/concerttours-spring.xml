@@ -73,6 +73,43 @@
 	       <aop:pointcut id="profiledMethods" expression="execution(* *(..))" />	
 	  -->
 
+    <alias name = "defaultBandService" alias = "bandService" />
+    <bean id = "defaultBandService" class = "concerttours.service.impl.DefaultBandService" >
+        <property name = "bandDAO" ref = "bandDAO" />
+    </bean>
+
+    <alias name = "defaultBandFacade" alias = "bandFacade" />
+    <bean id = "defaultBandFacade" class ="concerttours.facades.impl.DefaultBandFacade" >
+        <property name = "bandService" ref = "bandService" />
+    </bean>
+
+    <alias name = "defaultTourFacade" alias = "tourFacade" />
+    <bean id = "defaultTourFacade" class ="concerttours.facades.impl.DefaultTourFacade" >
+        <property name = "productService" ref = "productService" />
+    </bean>
+
+    <bean id="concerttourEventListener" class="concerttours.events.NewBandEventListener" parent="abstractEventListener">
+        <property name="modelService" ref="modelService" />
+    </bean>
+
+    <bean id="bandAlbumSalesInterceptor" class="concerttours.interceptors.BandAlbumSalesInterceptor" />
+    <bean id="BandInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="bandAlbumSalesInterceptor" />
+        <property name="typeCode" value="Band" />
+    </bean>
+    <bean id="bandAlbumSalesEventListener" class="concerttours.events.BandAlbumSalesEventListener" parent="abstractEventListener" >
+        <property name="modelService" ref="modelService" />
+    </bean>
+
+    <alias name="defaultNewsService" alias="newsService" />
+    <bean id="defaultNewsService" class="concerttours.service.impl.DefaultNewsService">
+        <property name="newsDAO" ref="newsDAO" />
+    </bean>
+    <bean id="sendNewsJob" class="concerttours.jobs.SendNewsJob" parent="abstractJobPerformable">
+        <property name="newsService" ref="newsService" />
+        <property name="configurationService" ref="configurationService" />
+    </bean>
+
     <bean id="concertDaysUntilAttributeHandler" class="concerttours.attributehandlers.ConcertDaysUntilAttributeHandler"/>
 
     <bean id="albumSalesAchievementAttributeHandler" class="concerttours.attributehandlers.AlbumSalesAchievementAttributeHandler" />
@@ -91,6 +128,16 @@
         <property name="modelService" ref="modelService"/>
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
+    </bean>
+
+    <alias name="defaultItemWithTokenService" alias="itemWithTokenService" />
+    <bean id="defaultItemWithTokenService" class="concerttours.service.impl.DefaultItemWithTokenService">
+        <property name="itemWithTokenDAO" ref="itemWithTokenDAO" />
+    </bean>
+    <bean id="generateTokenJob" class="concerttours.jobs.GenerateTokenJob" parent="abstractJobPerformable">
+        <property name="modelService" ref="modelService" />
+        <property name="itemWithTokenService" ref="itemWithTokenService" />
+        <property name="configurationService" ref="configurationService" />
     </bean>
 			
 </beans>
