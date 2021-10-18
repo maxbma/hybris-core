@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 10 окт. 2021 г., 15:24:25                   ---
+ * --- Generated at 12 окт. 2021 г., 11:18:15                   ---
  * ----------------------------------------------------------------
  */
 package concerttours.constants;
@@ -22,6 +22,9 @@ public class GeneratedConcerttoursConstants
 		public static final String ITEMWITHTOKEN = "ItemWithToken".intern();
 		public static final String MUSICTYPE = "MusicType".intern();
 		public static final String NEWS = "News".intern();
+		public static final String NOTLOREMIPSUMCONSTRAINT = "NotLoremIpsumConstraint".intern();
+		public static final String SOUNDSYSTEM = "SoundSystem".intern();
+		public static final String SPEAKERTYPE = "SpeakerType".intern();
 	}
 	public static class Attributes
 	{
@@ -43,6 +46,10 @@ public class GeneratedConcerttoursConstants
 			public static final String INDOOR = "indoor".intern();
 		}
 		public static class MusicType
+		{
+			// no values defined
+		}
+		public static class SpeakerType
 		{
 			// no values defined
 		}

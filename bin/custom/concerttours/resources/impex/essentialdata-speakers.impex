@@ -1,0 +1,8 @@
+INSERT_UPDATE SpeakerType;code[unique=true]
+;Leem
+;Behringer
+;Electro-Voice
+;QSC
+;Yahama
+;Biema
+;JBL

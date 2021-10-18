@@ -1,0 +1,4 @@
+INSERT_UPDATE SoundSystem;code[unique=true];speakerAmount;speakerType(code)
+;SS000;3;JBL
+;SS001;5;Yahama
+;SS002;4;QSC

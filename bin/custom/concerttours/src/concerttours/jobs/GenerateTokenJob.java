@@ -60,7 +60,6 @@ public class GenerateTokenJob extends AbstractJobPerformable<CronJobModel>{
     @Override
     public PerformResult perform(final CronJobModel cronJob)
     {
-        LOG.info("Sending news mails. Note that org.apache.commons.mail.send() can block if behind a firewall/proxy.");
         final List<ItemWithTokenModel> items = getItemWithTokenService().findItemsWithToken();
         if (items.isEmpty())
         {
