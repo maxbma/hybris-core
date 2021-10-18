@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 12 окт. 2021 г., 11:18:15                   ---
+ * --- Generated at 18 окт. 2021 г., 18:09:08                   ---
  * ----------------------------------------------------------------
  */
 package concerttours.constants;
@@ -23,6 +23,7 @@ public class GeneratedConcerttoursConstants
 		public static final String MUSICTYPE = "MusicType".intern();
 		public static final String NEWS = "News".intern();
 		public static final String NOTLOREMIPSUMCONSTRAINT = "NotLoremIpsumConstraint".intern();
+		public static final String PRODUCER = "Producer".intern();
 		public static final String SOUNDSYSTEM = "SoundSystem".intern();
 		public static final String SPEAKERTYPE = "SpeakerType".intern();
 	}
@@ -36,6 +37,7 @@ public class GeneratedConcerttoursConstants
 		{
 			public static final String BAND = "band".intern();
 			public static final String HASHTAG = "hashtag".intern();
+			public static final String PRODUCER = "producer".intern();
 		}
 	}
 	public static class Enumerations
@@ -57,6 +59,7 @@ public class GeneratedConcerttoursConstants
 	public static class Relations
 	{
 		public static final String BAND2MUSICTYPE = "Band2MusicType".intern();
+		public static final String PRODUCER2TOUR = "Producer2Tour".intern();
 		public static final String PRODUCT2ROCKBAND = "Product2RockBand".intern();
 	}
 	

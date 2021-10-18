@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 12 окт. 2021 г., 11:18:15                   ---
+ * --- Generated at 18 окт. 2021 г., 18:09:08                   ---
  * ----------------------------------------------------------------
  */
 package concerttours.jalo;
@@ -12,6 +12,7 @@ import concerttours.jalo.Concert;
 import concerttours.jalo.ItemWithToken;
 import concerttours.jalo.News;
 import concerttours.jalo.NotLoremIpsumConstraint;
+import concerttours.jalo.Producer;
 import concerttours.jalo.SoundSystem;
 import de.hybris.platform.directpersistence.annotation.SLDSafe;
 import de.hybris.platform.jalo.GenericItem;
@@ -55,6 +56,7 @@ public class ConcerttoursManager extends Extension
 		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
 		tmp.put("hashtag", AttributeMode.INITIAL);
 		tmp.put("band", AttributeMode.INITIAL);
+		tmp.put("producer", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.product.Product", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
@@ -360,6 +362,32 @@ public class ConcerttoursManager extends Extension
 		return createNotLoremIpsumConstraint( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public Producer createProducer(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType("Producer");
+			return (Producer)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Producer : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Producer createProducer(final Map attributeValues)
+	{
+		return createProducer( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public SoundSystem createSoundSystem(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -432,6 +460,42 @@ public class ConcerttoursManager extends Extension
 	public void setHashtag(final Product item, final String value)
 	{
 		setHashtag( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.producer</code> attribute.
+	 * @return the producer
+	 */
+	public Producer getProducer(final SessionContext ctx, final Product item)
+	{
+		return (Producer)item.getProperty( ctx, ConcerttoursConstants.Attributes.Product.PRODUCER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.producer</code> attribute.
+	 * @return the producer
+	 */
+	public Producer getProducer(final Product item)
+	{
+		return getProducer( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.producer</code> attribute. 
+	 * @param value the producer
+	 */
+	public void setProducer(final SessionContext ctx, final Product item, final Producer value)
+	{
+		item.setProperty(ctx, ConcerttoursConstants.Attributes.Product.PRODUCER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.producer</code> attribute. 
+	 * @param value the producer
+	 */
+	public void setProducer(final Product item, final Producer value)
+	{
+		setProducer( getSession().getSessionContext(), item, value );
 	}
 	
 }

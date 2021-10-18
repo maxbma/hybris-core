@@ -1,0 +1,6 @@
+INSERT_UPDATE Producer; code[unique=true];firstName;surname
+;P001;Rick;Rubin
+;P002;Nile;Rodgers
+;P003;Quincy;Jones
+;P004;Martin;Hannett
+;P005;John;Leckie

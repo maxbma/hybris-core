@@ -73,6 +73,14 @@
 	       <aop:pointcut id="profiledMethods" expression="execution(* *(..))" />	
 	  -->
 
+    <bean id="producerService" class="concerttours.service.impl.DefaultProducerService">
+        <property name="producerDAO" ref="producerDAO" />
+    </bean>
+
+    <alias name="defaultProducerFacade" alias="producerFacade" />
+    <bean id="defaultProducerFacade" class="concerttours.facades.impl.DefaultProducerFacade">
+        <property name="producerService" ref="producerService" />
+    </bean>
     <alias name = "defaultBandService" alias = "bandService" />
     <bean id = "defaultBandService" class = "concerttours.service.impl.DefaultBandService" >
         <property name = "bandDAO" ref = "bandDAO" />
